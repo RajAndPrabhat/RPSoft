@@ -36,3 +36,12 @@ class Portfolio(models.Model):
     name=models.CharField(max_length=200)
     link_url=models.URLField(null=True, default='')
     image_file=models.ImageField(upload_to='portfolios')
+
+class Lead(models.Model):
+    first_name=models.CharField(max_length=100)
+    last_name=models.CharField(max_length=100)
+    email=models.CharField(max_length=200)
+    phone=models.CharField(max_length=20)
+    subject=models.CharField(max_length=50)
+    message=models.TextField()
+    created_at=models.DateTimeField(auto_now=True)

@@ -1,12 +1,12 @@
 from django.contrib import admin
-from .models import Service, Testimonial, Slider, TeamMember, Client, Portfolio
+from .models import Service, Testimonial, Slider, TeamMember, Client, Portfolio, Lead
 from django.utils.html import format_html
 
 # Register your models here.
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
     list_display=[field.name for field in Service._meta.get_fields()]
-    list_filter = ["name"]
+    search_fields = ["name"]
 
 @admin.register(Testimonial)
 class TestimonialAdmin(admin.ModelAdmin):
@@ -15,7 +15,7 @@ class TestimonialAdmin(admin.ModelAdmin):
     image_tag.short_description = 'Image File'
 
     list_display=['id','image_tag','name','designation','description']
-    list_filter = ["name","designation"]
+    search_fields = ["name","designation"]
 
 @admin.register(Slider)
 class SliderAdmin(admin.ModelAdmin):
@@ -24,7 +24,7 @@ class SliderAdmin(admin.ModelAdmin):
     image_tag.short_description = 'Image File'
 
     list_display=['id','image_tag','heading','description']
-    list_filter = ["heading"]
+    search_fields = ["heading"]
 
 @admin.register(Client)
 class ClientAdmin(admin.ModelAdmin):
@@ -33,7 +33,7 @@ class ClientAdmin(admin.ModelAdmin):
     image_tag.short_description = 'Image File'
 
     list_display=['id','image_tag','name']
-    list_filter = ["name"]
+    search_fields = ["name"]
 
 
 @admin.register(TeamMember)
@@ -43,7 +43,7 @@ class TeamMemberAdmin(admin.ModelAdmin):
     image_tag.short_description = 'Image File'
 
     list_display=['id','image_tag','name','designation','twitter_url','linkedin_url','facebook_url','instgram_url']
-    list_filter = ["name",'designation']
+    search_fields = ["name",'designation']
 
 
 
@@ -54,4 +54,11 @@ class PortfolioAdmin(admin.ModelAdmin):
     image_tag.short_description = 'Image File'
 
     list_display=['id','image_tag','name','link_url']
-    list_filter = ["name"]
+    search_fields = ["name"]
+
+@admin.register(Lead)
+class LeadAdmin(admin.ModelAdmin):
+    list_display=[field.name for field in Lead._meta.get_fields()]
+    # list_filter = ['first_name','last_name','email','phone', 'subject']
+    search_fields=['first_name','last_name']
+  

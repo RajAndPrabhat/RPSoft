@@ -55,7 +55,7 @@
                         </div>
                     </div>
                     <div class="pt-4 pb-5 px-5">
-                        {{testimonial.description}}
+                        {{testimonial.description | slice:":100"}}
                     </div>
                 </div>
                 {% endfor %}
