@@ -47,7 +47,7 @@
                         </div>
                     </div>
                     <div class="pt-4 pb-5 px-5">
-                        {{testimonial.description| slice:":100"}}
+                        {{testimonial.description| safe| slice:":100"}}
                     </div>
                 </div>
                 {% endfor %}

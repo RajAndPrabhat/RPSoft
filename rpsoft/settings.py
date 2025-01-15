@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'background_task',    
     'core',
-    'django_recaptcha'
+    'django_recaptcha',
+    'ckeditor', # CKEditor config
+    'ckeditor_uploader', # CKEditor media uploader
 ]
 
 MIDDLEWARE = [
@@ -156,3 +158,6 @@ EMAIL_HOST_PASSWORD =os.getenv("EMAIL_HOST_PASSWORD")
 RECAPTCHA_PUBLIC_KEY = os.getenv("RECAPTCHA_PUBLIC_KEY")
 RECAPTCHA_PRIVATE_KEY = os.getenv("RECAPTCHA_PRIVATE_KEY")
 
+
+#ckeditor upload path
+CKEDITOR_UPLOAD_PATH="uploads/"

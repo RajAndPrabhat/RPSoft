@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor_uploader.fields import RichTextUploadingField 
 
 # Create your models here.
 class Service(models.Model):
@@ -8,7 +9,7 @@ class Service(models.Model):
 
 class Testimonial(models.Model):
     name=models.CharField(max_length=200)
-    description=models.TextField(max_length=500)
+    description=RichTextUploadingField()
     designation=models.CharField(max_length=100, null=True)
     image_file=models.ImageField(upload_to='testimonial')
     
